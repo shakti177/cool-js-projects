@@ -55,7 +55,7 @@ Click the **Fork** button on the top right of this page.
 
 ### 2. Clone your fork
 ```bash
-git clone https://github.com/<your-username>/cooljs.git
+git clone https://github.com/shakti177/cool-js-projects.git
 cd cooljs
 ```
 
