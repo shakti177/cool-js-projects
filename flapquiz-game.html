@@ -1,0 +1,276 @@
+
+
+class QuizGame {
+    constructor() {
+        this.questions = [];
+        this.currentQuestion = 0;
+        this.score = 0;
+        this.timer = 60;
+        this.gameActive = false;
+        this.leaderboard = JSON.parse(localStorage.getItem('quizLeaderboard')) || [];
+        this.initializeQuestions();
+    }
+
+    initializeQuestions() {
+        this.questions = [
+            {
+                question: "Which language runs in web browsers?",
+                options: ["Java", "C", "Python", "JavaScript"],
+                correct: 3,
+                category: "Programming"
+            },
+            {
+                question: "What does CSS stand for?",
+                options: ["Computer Style Sheets", "Creative Style System", "Cascading Style Sheets", "Colorful Style Sheets"],
+                correct: 2,
+                category: "Web Development"
+            },
+            {
+                question: "Which year was JavaScript created?",
+                options: ["1995", "1998", "2000", "2005"],
+                correct: 0,
+                category: "History"
+            },
+            {
+                question: "What is React?",
+                options: ["A database", "A programming language", "A JavaScript library", "An operating system"],
+                correct: 2,
+                category: "Frameworks"
+            },
+            {
+                question: "Which HTML tag is used for JavaScript?",
+                options: ["<script>", "<js>", "<javascript>", "<code>"],
+                correct: 0,
+                category: "HTML"
+            }
+        ];
+    }
+
+    startGame() {
+        this.currentQuestion = 0;
+        this.score = 0;
+        this.timer = 60;
+        this.gameActive = true;
+        this.displayQuestion();
+        this.startTimer();
+        this.updateDisplay();
+    }
+
+    displayQuestion() {
+        if (!this.gameActive) return;
+
+        const question = this.questions[this.currentQuestion];
+        let html = `
+            <div class="question-card">
+                <div class="category">${question.category}</div>
+                <h3>${question.question}</h3>
+                <div class="options">
+        `;
+
+        question.options.forEach((option, index) => {
+            html += `<button onclick="quiz.selectAnswer(${index})" class="option-btn">${option}</button>`;
+        });
+
+        html += `</div></div>`;
+        document.getElementById('quiz-container').innerHTML = html;
+        this.updateProgress();
+    }
+
+    selectAnswer(selectedIndex) {
+        if (!this.gameActive) return;
+
+        const question = this.questions[this.currentQuestion];
+        const buttons = document.querySelectorAll('.option-btn');
+        
+        buttons.forEach((btn, index) => {
+            if (index === question.correct) {
+                btn.classList.add('correct');
+            } else if (index === selectedIndex && index !== question.correct) {
+                btn.classList.add('wrong');
+            }
+            btn.disabled = true;
+        });
+
+        if (selectedIndex === question.correct) {
+            this.score += 10;
+            this.showFeedback("Correct! ", "success");
+        } else {
+            this.showFeedback("Wrong! ", "error");
+        }
+
+        setTimeout(() => {
+            this.nextQuestion();
+        }, 1500);
+    }
+
+    nextQuestion() {
+        this.currentQuestion++;
+        if (this.currentQuestion < this.questions.length) {
+            this.displayQuestion();
+        } else {
+            this.endGame();
+        }
+        this.updateDisplay();
+    }
+
+    startTimer() {
+        const timerInterval = setInterval(() => {
+            if (this.gameActive && this.timer > 0) {
+                this.timer--;
+                this.updateDisplay();
+            } else if (this.timer <= 0) {
+                clearInterval(timerInterval);
+                this.endGame();
+            }
+        }, 1000);
+    }
+
+    updateDisplay() {
+        document.getElementById('score').textContent = this.score;
+        document.getElementById('timer').textContent = this.timer;
+        document.getElementById('progress').textContent = 
+            `${this.currentQuestion + 1}/${this.questions.length}`;
+    }
+
+    updateProgress() {
+        const progress = ((this.currentQuestion + 1) / this.questions.length) * 100;
+        document.getElementById('progress-bar').style.width = progress + '%';
+    }
+
+    showFeedback(message, type) {
+        const feedback = document.getElementById('feedback');
+        feedback.textContent = message;
+        feedback.className = `feedback ${type}`;
+        feedback.style.display = 'block';
+        
+        setTimeout(() => {
+            feedback.style.display = 'none';
+        }, 1500);
+    }
+
+    endGame() {
+        this.gameActive = false;
+        const finalScore = this.score + this.timer;
+        
+        const playerName = prompt(`Game Over! Your score: ${finalScore}\nEnter your name:`) || 'Anonymous';
+        this.saveToLeaderboard(playerName, finalScore);
+        
+        this.showResults(finalScore);
+    }
+
+    saveToLeaderboard(name, score) {
+        this.leaderboard.push({ name, score, date: new Date().toLocaleDateString() });
+        this.leaderboard.sort((a, b) => b.score - a.score);
+        this.leaderboard = this.leaderboard.slice(0, 5); // Keep top 5
+        localStorage.setItem('quizLeaderboard', JSON.stringify(this.leaderboard));
+    }
+
+    showResults(finalScore) {
+        const html = `
+            <div class="results">
+                <h2> Game Complete! </h2>
+                <div class="final-score">Final Score: ${finalScore}</div>
+                <div class="breakdown">
+                    <p>Correct Answers: ${this.score / 10}/${this.questions.length}</p>
+                    <p>Time Bonus: +${this.timer} points</p>
+                </div>
+                <button onclick="quiz.showLeaderboard()" class="btn">View Leaderboard</button>
+                <button onclick="quiz.startGame()" class="btn">Play Again</button>
+            </div>
+        `;
+        document.getElementById('quiz-container').innerHTML = html;
+    }
+
+    showLeaderboard() {
+        let html = '<div class="leaderboard"><h2>🏆 Leaderboard</h2><ol>';
+        
+        this.leaderboard.forEach((entry, index) => {
+            html += `<li>${entry.name} - ${entry.score} points (${entry.date})</li>`;
+        });
+        
+        html += `</ol><button onclick="quiz.startGame()" class="btn">Back to Game</button></div>`;
+        document.getElementById('quiz-container').innerHTML = html;
+    }
+}
+
+// Initialize and start the game
+const quiz = new QuizGame();
+
+// CSS Styles
+const styles = `
+    <style>
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0; padding: 20px; min-height: 100vh; color: white;
+        }
+        .container { max-width: 600px; margin: 0 auto; text-align: center; }
+        .stats { display: flex; justify-content: space-around; margin: 20px 0; }
+        .stat-box { background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; }
+        .question-card { 
+            background: white; color: #333; padding: 20px; border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 20px 0;
+        }
+        .category { 
+            background: #667eea; color: white; padding: 5px 15px; 
+            border-radius: 20px; display: inline-block; margin-bottom: 15px;
+        }
+        .options { display: grid; gap: 10px; margin-top: 20px; }
+        .option-btn { 
+            padding: 15px; border: 2px solid #667eea; background: white; 
+            border-radius: 10px; cursor: pointer; transition: all 0.3s;
+        }
+        .option-btn:hover { background: #667eea; color: white; }
+        .option-btn.correct { background: #4CAF50; color: white; border-color: #4CAF50; }
+        .option-btn.wrong { background: #f44336; color: white; border-color: #f44336; }
+        .btn { 
+            background: #667eea; color: white; border: none; padding: 12px 25px; 
+            border-radius: 25px; cursor: pointer; margin: 10px; font-size: 16px;
+        }
+        .feedback { 
+            padding: 15px; border-radius: 10px; margin: 20px 0; font-weight: bold;
+        }
+        .feedback.success { background: #4CAF50; }
+        .feedback.error { background: #f44336; }
+        .progress-bar { 
+            width: 100%; height: 10px; background: rgba(255,255,255,0.3); 
+            border-radius: 5px; margin: 20px 0;
+        }
+        .progress-bar > div { 
+            height: 100%; background: #4CAF50; border-radius: 5px; 
+            transition: width 0.3s;
+        }
+        .results, .leaderboard { 
+            background: white; color: #333; padding: 30px; 
+            border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+    </style>
+`;
+
+// HTML Structure
+document.write(`
+    ${styles}
+    <div class="container">
+        <h1> JavaScript Quiz Game</h1>
+        <p>Test your programming knowledger</p>
+        
+        <div class="stats">
+            <div class="stat-box"> Time: <span id="timer">60</span>s</div>
+            <div class="stat-box">Score: <span id="score">0</span></div>
+            <div class="stat-box"> Progress: <span id="progress">0/5</span></div>
+        </div>
+        
+        <div class="progress-bar"><div id="progress-bar"></div></div>
+        <div id="feedback" class="feedback" style="display: none;"></div>
+        
+        <div id="quiz-container">
+            <div class="question-card">
+                <h2>Welcome to the Quiz! 🎮</h2>
+                <p>Answer programming questions against the clock.</p>
+                <p>Earn 10 points per correct answer + time bonus!</p>
+                <button onclick="quiz.startGame()" class="btn">Start Quiz </button>
+                <button onclick="quiz.showLeaderboard()" class="btn">Leaderboard </button>
+            </div>
+        </div>
+    </div>
+`);
