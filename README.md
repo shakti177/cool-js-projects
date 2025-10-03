@@ -8,7 +8,7 @@ This repository is perfect for beginners and open-source enthusiasts who want to
 ## 📌 What is this repo?
 
 This is a place to share your JavaScript projects.  
-Each contributor can add a **new folder** with their project (game, app, experiment, etc.) and open a Pull Request (PR) to get it merged.
+Each contributor can add a **new folder** with their project (game, app, experiment,portfolio's  etc.) and open a Pull Request (PR) to get it merged.
 
 Examples of projects you can contribute:
 - Mini games (Snake, Flappy Bird, Memory game)  
