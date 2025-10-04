@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- meta -->
+
+    <!-- Manifest.json  -->
+    <!-- <link href="/manifest.json" rel="manifest"> -->
+    <meta property="og:title" content="MazeEngine| Solver | Player Game">
+    <meta property="og:description"
+        content="Collection of different algorithms to solve a maze and a simple maze game ! ">
+    <meta property="og:image" itemprop="image" content="./images/maze.png">
+    
+
+    <!-- Main Link Tags  -->
+    <link href="./images/maze.png" rel="icon" type="image/png" sizes="16x16">
+    <link href="./images/maze.png" rel="icon" type="image/png" sizes="32x32">
+
+    <title>MazeEngine | Solver & Player</title>
+
+    <!-- style and font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Raleway&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/main.min.css">
+
+    <!-- scripts -->
+    <script src="./scripts/util.js" defer></script>
+    <script src="./scripts/cell.js" defer></script>
+    <script src="./scripts/maze.js" defer></script>
+    <script src="./scripts/solver.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
+</head>
+
+<body>
+
+
+    <div class="mobile-view">
+        <img src="./images/maze.png" alt="logo">
+        <p>Use Laptop or Desktop for viewing the site</p>
+    </div>
+
+    <div id="game-title">Maze Engine| <span id="inp">Solver</span>
+    </div>
+
+    <div class="container">
+        <button class="algobtn" id="algobtn-menu">⬅️ To Algo</button>
+
+        <div class="navbar">
+            <div class="title">
+                <img src="./images/maze.png" alt="logo" id="logo">
+                <div>Maze Engine </div>
+            </div>
+
+            <section title="inputs" class="inputs">
+                <label for="cars">Choose an Algo to solve:</label>
+
+                <select name="algos" id="algo">
+                    <option value="dfs">Depth First Search</option>
+                    <option value="bfs">Breadth First Search</option>
+                   
+                </select>
+            </section>
+
+            <section title="Buttons" class="buttons">
+                <button id="generate">Re-Generate</button>
+                <button id="solve">Solve</button>
+            </section>
+
+            <div class="anim-btn">
+                <p>Animation ?</p>
+                <div class="anim-container">
+                    <input type="checkbox" id="anim-flag" checked />
+                </div>
+            </div>
+
+            <section title="Try player Mode" class="player-section">
+                <button id="player">Try Player Mode</button>
+            </section>
+        </div>
+        <div class="maze-wrapper">
+            <div id="maze-container">
+                <div class="row">
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- winning screen -->
+    <div class="infoScreen" id="playerWon">
+        <h1>🎉🎉 You won !! 🎉🎉</h1>
+        <section title="Buttons" class="buttons">
+            <button class="algobtn">Go To Algo</button>
+            <button id="play-again">Play again</button>
+        </section>
+    </div>
+
+    <!-- instruction -->
+    <div class="infoScreen" id="keyInstruct">
+        <img src="./images/keys.jpg" alt="keys instruction">
+        <p>Use Keyboard to control the player!</p>
+        <button class="ok-btn" onclick="hideInfo()">OK</button>
+    </div>
+
+
+</body>
+
+</html>

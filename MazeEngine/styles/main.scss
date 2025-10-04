@@ -1,0 +1,83 @@
+ @import "./menu", "./toggle", "./maze", "./infoScreen";
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     background-color: #fff;
+     width: 100%;
+     height: 100%;
+     font-family: 'Raleway', sans-serif;
+     user-select: none;
+ }
+
+ .container {
+     width: 100%;
+     height: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     background: #fff;
+
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ #algobtn-menu {
+     position: absolute;
+     top: 10px;
+     left: 10px;
+     display: none;
+ }
+
+ #game-title {
+     position: fixed;
+     bottom: -10px;
+     right: 6px;
+     opacity: .3;
+     color: gray;
+     font-size: 3.1rem;
+     z-index: 100;
+     width: 100%;
+     text-align: right;
+     text-transform: uppercase;
+     font-family: 'Odibee Sans', cursive;
+ }
+
+ $mobile :600px;
+
+ .mobile-view {
+     width: 100vw;
+     height: 100vh;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 100;
+
+     display: none;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+     background: #efefef;
+
+     img {
+         width: 50vw;
+         max-width: 200px;
+         margin-bottom: 20px;
+     }
+
+     p {
+         font-size: large;
+     }
+
+
+     @media screen and (max-width: $mobile) {
+        display: flex;
+     }
+ }
