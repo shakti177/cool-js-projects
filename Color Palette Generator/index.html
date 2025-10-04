@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Generator</title>
+    <link rel="stylesheet" href="style.css">
+        
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 Color Palette Generator</h1>
+        <p class="subtitle">Click any color to copy • Press Space for new palette</p>
+    </div>
+
+    <div class="palette-container" id="paletteContainer"></div>
+
+    <div class="controls">
+        <button class="btn btn-generate" id="generateBtn">
+            Generate Palette
+        </button>
+        <button class="btn btn-export" id="exportBtn">
+         Copy All Colors
+        </button>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="spacebar-hint">
+        Press <kbd>Space</kbd> to generate new palette
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
