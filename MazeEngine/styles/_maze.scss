@@ -1,0 +1,57 @@
+$cell-border-size:1px;
+$cell-size:36px;
+
+.maze-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.maze-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &:first-child {
+        border-top: $cell-border-size solid black;
+    }
+
+    &:last-child {
+        border-bottom: $cell-border-size solid black;
+    }
+}
+
+.cell {
+    width: $cell-size;
+    height: $cell-size;
+    background-color: #fff;
+    border: $cell-border-size solid black;
+}
+
+// different states
+.gen {
+    background-color: gray;
+}
+.travel{
+    background-color: lightgray;
+}
+.player {
+    background-color: cyan;
+}
+.food {
+    background-color: red;
+}
