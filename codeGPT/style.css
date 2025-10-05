@@ -1,0 +1,31 @@
+.card {
+  background-color: #000;
+  color: #fff;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input {
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 200px;
+  width: 80%;
+  display: block;
+}
+
+.dark {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+#generate {
+  cursor: pointer;
+  width: 5rem;
+  height: 2rem;
+  text-align: center;
+  font: 1em sans-serif;
+  background-color: #fff;
+  color: #1a1a1a;
+}
