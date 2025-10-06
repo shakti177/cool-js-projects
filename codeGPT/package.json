@@ -1,0 +1,17 @@
+{
+  "name": "codegpt",
+  "version": "1.0.0",
+  "description": "**CodeGPT** is a web-based tool built with HTML, CSS, and JavaScript that integrates with the **Gen AI** API to provide optimized JavaScript solutions based on your problem statements. It helps developers quickly get efficient code solutions directly in the browser without any setup or complex configurations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.3"
+  }
+}
