@@ -5,6 +5,10 @@ This repository is perfect for beginners and open-source enthusiasts who want to
 
 ---
 
+![cool-js-projects](https://socialify.git.ci/shakti177/cool-js-projects/image?custom_language=JavaScript&description=1&forks=1&issues=1&language=1&name=1&owner=1&pattern=Solid&pulls=1&stargazers=1&theme=Auto)
+
+---
+
 ## 📌 What is this repo?
 
 This is a place to share your JavaScript projects.  
