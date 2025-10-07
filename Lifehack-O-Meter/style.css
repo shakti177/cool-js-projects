@@ -1,0 +1,221 @@
+/* Import Google Font - Poppins for a friendly vibe */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #4b4b4b; /* soft pastel background */
+  color: #4b4b4b; /* gentle dark gray for readability */
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff8f9; /* clean white container */
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(200, 170, 160, 0.3); /* soft blush shadow */
+  padding: 30px 40px;
+}
+
+#Heading h1 {
+  color: #cb3869; /* pastel pink */
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+  text-align: center;
+  text-shadow: 1px 1px 0 #f8bbd0; /* soft highlight */
+}
+
+#Heading h3 {
+  color: #2893eb; /* soft blue */
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 5px solid #ce93d8; /* lavender accent */
+  background-color: #fff0f6; /* light pinkish section bg */
+  border-radius: 10px;
+}
+
+section p {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #6d4c41; /* soft brown */
+  font-size: 1.1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #5d5d5d;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #b39ddb; /* light purple border */
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: #fafafa;
+}
+
+input[type="text"]:focus {
+  border-color: #ba68c8; /* purple on focus */
+  box-shadow: 0 0 8px #e1bee7aa;
+}
+
+button {
+  background-color: #f33f78; /* pastel pink */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #eb80a4; /* deeper pink on hover */
+  box-shadow: 0 4px 10px #f8bbd060;
+}
+
+#jugadanswer,
+#codeanswer,
+#examanswer,
+#foodanswer,
+#startanswer {
+  margin-top: 12px;
+  padding: 10px 15px;
+  background-color: #e1f5fe; /* soft blue answer background */
+  border-left: 4px solid #81d4fa;
+  border-radius: 5px;
+  min-height: 40px;
+  font-style: italic;
+  color: #37474f;
+}
+
+/* Responsive Design */
+
+  @media(max-width: 600px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  #Heading h1 {
+    font-size: 2rem;
+  }
+
+  #Heading h3 {
+    font-size: 1rem;
+  }
+
+ input[type="text"] {
+  font-size: 1.1rem;
+  padding: 14px 12px;   /* more vertical padding */
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+  button {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 12px 0;
+    margin-top: 10px;
+  }
+
+  #jugadanswer,
+  #codeanswer,
+  #examanswer,
+  #foodanswer,
+  #startanswer {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+
+  select {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+
+footer {
+  text-align: center;
+  padding: 15px 10px;
+  background-color: #222;
+  color: #eee;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: fixed; /* if you want it fixed at bottom */
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -1px 5px rgba(0,0,0,0.3);
+}
+
+footer a {
+  color: #ff4d4d; /* nice red accent */
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+label {
+  font-weight: bold;
+  margin-right: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select {
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select:hover, select:focus {
+  border-color: #ff4d4d;
+  outline: none;
+}
+
+html, body {
+  scroll-padding-bottom: 80px;
+}
+
+ section {
+  padding: 20px 24px;  /* previously: 20px only */
+}
+
+
+
+
