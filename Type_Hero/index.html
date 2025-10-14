@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Type Hero Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>⌨️ Type Hero</h1>
+
+    <div class="controls">
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy 🟢</option>
+        <option value="medium">Medium 🟡</option>
+        <option value="hard">Hard 🔴</option>
+      </select>
+      <button id="start">▶️ Start</button>
+    </div>
+
+    <div id="game-area"></div>
+
+    <input
+      type="text"
+      id="word-input"
+      placeholder="Type word here..."
+      autofocus
+      disabled
+    />
+
+    <div class="stats">
+      <p>Score: <span id="score">0</span></p>
+      <p>Lives: <span id="lives">3</span></p>
+    </div>
+
+    <button id="restart">🔁 Restart</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
