@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Minimal Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="card" role="main">
+        <h1>Minimal Pomodoro</h1>
+        <div class="time" id="time">25:00</div>
+        <div class="small" id="status">Ready — Work</div>
+
+        <div class="progress" aria-hidden="true">
+            <div class="bar" id="bar"></div>
+        </div>
+
+        <div class="modes" role="tablist" aria-label="Timer modes">
+            <button class="mode active" data-min="25" id="workMode">Work</button>
+            <button class="mode" data-min="5" id="shortBreak">Short</button>
+            <button class="mode" data-min="15" id="longBreak">Long</button>
+        </div>
+
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset" class="primary">Reset</button>
+        </div>
+
+        <div class="footer">
+            <div class="tiny">Shortcuts: Space = start/pause · R = reset · 1/2/3 = Work/Short/Long</div>
+        </div>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
