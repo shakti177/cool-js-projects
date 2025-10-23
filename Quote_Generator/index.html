@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="wrapper">
+        <section class="card">
+            <header class="card-header">
+                <h1>Daily Inspiration</h1>
+                <p class="lead">Get a random quote to boost your day</p>
+            </header>
+
+            <div class="quote-area">
+                <p id="quoteText" class="quote">Click "New Quote" to begin</p>
+                <p id="authorText" class="author">— Unknown</p>
+                <span id="categoryBadge" class="badge">General</span>
+            </div>
+
+            <div class="controls">
+                <div class="left">
+                    <button id="newQuoteBtn" class="btn primary">New Quote</button>
+                </div>
+                <div class="right">
+                    <button id="copyBtn" class="btn outline">Copy</button>
+                    <button id="shareBtn" class="btn outline">Share</button>
+                </div>
+            </div>
+
+            <div class="filters">
+                <label for="categorySelect" class="sr-only">Category</label>
+                <select id="categorySelect" class="select">
+                    <option value="all">All</option>
+                    <option value="motivational">Motivational</option>
+                    <option value="success">Success</option>
+                    <option value="wisdom">Wisdom</option>
+                    <option value="life">Life</option>
+                    <option value="happiness">Happiness</option>
+                </select>
+            </div>
+
+            <div class="footer">
+                <span id="quotesGenerated" class="counter">Quotes shown: 0</span>
+            </div>
+        </section>
+    </main>
+
+    <div id="notification" class="notification" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
