@@ -8,7 +8,7 @@ A simple and interactive web application that helps users create strong password
 - Real-time password strength detection  
 - Color strength indicator  
 - Dark theme with blue accents  
-- User-friendly and responsive UI  
+- User-friendly and responsive UI 
 
 ---
 
