@@ -1,0 +1,69 @@
+:root{
+  --bg:#041026;
+  --panel:rgba(255,255,255,0.03);
+  --neon:#00d4ff;
+  --accent:#0066ff;
+  --muted:#9fb3c8;
+  --card-radius:12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Poppins",sans-serif;background:linear-gradient(180deg,var(--bg),#021022);color:#e9f6ff}
+.app{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:18px}
+.topbar{width:100%;max-width:1100px;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px}
+.topbar h1{font-size:20px;margin:0;color:var(--neon);text-shadow:0 6px 20px rgba(0,212,255,0.05)}
+.controls-top{display:flex;gap:10px;align-items:center}
+.lbl{color:var(--muted);font-weight:600}
+.controls-top input[type="number"], .controls-top select{padding:6px 8px;border-radius:8px;border:none;background:var(--panel);color:inherit}
+
+/* game layout */
+.game{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr 340px;gap:18px}
+.left{display:flex;flex-direction:column;gap:12px}
+.scoreboard{display:flex;gap:12px;align-items:stretch}
+.player-card{flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));text-align:center}
+.player-card h2{margin:0 0 8px 0;color:var(--neon)}
+.player-card .score{font-weight:700;color:#dff7ff}
+.player-card .best{margin-top:6px;color:var(--muted)}
+
+.dice-wrap{padding:14px;border-radius:10px;background:var(--panel);display:flex;flex-direction:column;align-items:center;gap:12px}
+.dice-box{display:flex;gap:18px;align-items:center;justify-content:center}
+.dice-box img{width:160px;height:160px;border-radius:14px;transition:transform .6s cubic-bezier(.2,.9,.2,1);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+.dice-box img.roll{transform:rotate(720deg) scale(1.02);filter:drop-shadow(0 20px 40px rgba(0,212,255,0.06))}
+
+.actions{display:flex;gap:12px}
+.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--neon),var(--accent));color:#042030}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+.btn.small{padding:8px 10px;font-size:13px}
+
+/* message */
+.message{color:var(--muted);font-weight:700}
+
+/* right column */
+.right{display:flex;flex-direction:column;gap:12px}
+.panel{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:12px;border-radius:10px}
+.panel h3{color:var(--neon);margin:0 0 8px 0}
+.history-list{max-height:300px;overflow:auto;padding-left:18px;color:#cfefff}
+
+/* history actions */
+.history-actions{display:flex;gap:8px;margin-top:8px}
+
+/* footer */
+.footer{text-align:center;margin-top:12px;opacity:0.7}
+
+/* Responsive */
+@media (max-width:980px){
+  .game{grid-template-columns:1fr 300px}
+  .dice-box img{width:140px;height:140px}
+}
+@media (max-width:720px){
+  .game{grid-template-columns:1fr;align-items:center}
+  .right{order:2}
+  .left{order:1}
+  .dice-box img{width:120px;height:120px}
+  .controls-top{flex-wrap:wrap}
+}
+@media (max-width:420px){
+  .dice-box img{width:100px;height:100px}
+  .controls-top input, .controls-top select{width:100%}
+}

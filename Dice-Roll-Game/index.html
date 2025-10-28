@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dice — Player vs Computer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>🎲 Dice — Player vs Computer</h1>
+      <div class="controls-top">
+        <label class="lbl">Mode:
+          <select id="modeSelect" aria-label="Game Mode">
+            <option value="pvc">Player vs Computer (Auto)</option>
+            <option value="pvp">Player vs Player</option>
+          </select>
+        </label>
+
+        <label class="lbl">Target:
+          <input id="target" type="number" value="20" min="1" max="999" />
+        </label>
+
+        <button id="resetBtn" class="btn ghost">Reset</button>
+      </div>
+    </header>
+
+    <section class="game">
+      <div class="left">
+        <div class="scoreboard">
+          <div class="player-card" id="playerCard">
+            <h2>Player</h2>
+            <div class="score">Score: <span id="playerScore">0</span></div>
+            <div class="best">Best: <span id="bestPlayer">—</span></div>
+          </div>
+
+          <div class="player-card" id="computerCard">
+            <h2>Computer</h2>
+            <div class="score">Score: <span id="computerScore">0</span></div>
+            <div class="best">Best: <span id="bestComputer">—</span></div>
+          </div>
+        </div>
+
+        <div class="dice-wrap">
+          <div class="dice-box">
+            <img id="playerDice" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png" alt="player dice" />
+            <img id="computerDice" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png" alt="computer dice" />
+          </div>
+
+          <div class="actions">
+            <button id="rollBtn" class="btn primary">Roll</button>
+            <button id="holdBtn" class="btn">Hold (Pass)</button>
+          </div>
+
+          <div id="message" class="message">Press <strong>Roll</strong> to play</div>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div class="panel history">
+          <h3>Roll History</h3>
+          <ol id="historyList" class="history-list"></ol>
+          <div class="history-actions">
+            <button id="clearHistory" class="btn small ghost">Clear History</button>
+            <button id="exportBtn" class="btn small">Export .txt</button>
+          </div>
+        </div>
+
+        <div class="panel tips">
+          <h3>Tips</h3>
+          <ul>
+            <li>Computer auto-rolls 500ms after Player in PvC mode.</li>
+            <li>Roll a 6 → bonus +2 points; others → +1 point.</li>
+            <li>Use Hold to pass turn in PvP mode.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">Made for Hacktoberfest 2025 — Player vs Computer mode</footer>
+  </main>
+
+  <!-- sounds (optional) -->
+  <audio id="sndRoll" src="https://www.soundjay.com/dice/sounds/dice-roll-1.mp3" preload="auto"></audio>
+  <audio id="sndWin" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
