@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0f24;
+  color: #dbe6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #112040;
+  padding: 25px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.4);
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 18px;
+  background: #0f1a33;
+  color: white;
+}
+
+#togglePassword {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8ab9ff;
+}
+
+.strength-bar {
+  width: 100%;
+  height: 7px;
+  background: #1a2948;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+#strength-level {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 5px;
+}
+
+.copy-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  background-color: #0077ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: .3s;
+}
+
+.copy-btn:hover {
+  background-color: #0090ff;
+}
+
+#suggestions {
+  font-size: 13px;
+  margin-top: 10px;
+  color: #99caff;
+}
